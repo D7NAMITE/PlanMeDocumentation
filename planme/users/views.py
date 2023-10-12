@@ -1,9 +1,22 @@
+import pyrebase
+from django.shortcuts import render
 from django.contrib.auth import get_user_model
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.messages.views import SuccessMessageMixin
 from django.urls import reverse
 from django.utils.translation import gettext_lazy as _
 from django.views.generic import DetailView, RedirectView, UpdateView
+
+
+config = {
+  "apiKey": "AIzaSyDRLf6GEoHKnQcHzf8Nh4bhO8e13r0iiVI",
+  "authDomain": "planme-6007f.firebaseapp.com",
+  "projectId": "planme-6007f",
+  "storageBucket": "planme-6007f.appspot.com",
+  "messagingSenderId": "409452142687",
+  "appId": "1:409452142687:web:e6eb0572b53dac1ce1fbea",
+  "measurementId": "G-P806F77297"
+}
 
 User = get_user_model()
 
@@ -41,3 +54,7 @@ class UserRedirectView(LoginRequiredMixin, RedirectView):
 
 
 user_redirect_view = UserRedirectView.as_view()
+
+
+firebase = pyrebase.initialize_app(config)
+auth = firebase.auth()
