@@ -81,3 +81,6 @@ def post_login(request):
 def logout(request):
     request.session.pop('uid', None)
     return redirect('login.html')
+
+def signup(request):
+    return render(request, "signup.html")
