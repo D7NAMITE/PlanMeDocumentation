@@ -1,5 +1,5 @@
 import pyrebase
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.contrib.auth import get_user_model
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.messages.views import SuccessMessageMixin
@@ -77,3 +77,7 @@ def post_login(request):
     session_id = user['idToken']
     request.session['uid'] = str(session_id)
     return render(request, 'home.html')
+
+def logout(request):
+    request.session.pop('uid', None)
+    return redirect('login.html')
