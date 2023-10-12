@@ -84,3 +84,14 @@ def logout(request):
 
 def signup(request):
     return render(request, "signup.html")
+
+def post_signup(request):
+     email = request.POST.get('email')
+     password = request.POST.get('password')
+     try:
+        # creating a user with the given email and password
+        auth.create_user_with_email_and_password(email,password)
+     except:
+        # return to the signup page.
+        return render(request, "signup.html")
+     return render(request, "Login.html")
