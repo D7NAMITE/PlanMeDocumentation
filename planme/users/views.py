@@ -58,3 +58,6 @@ user_redirect_view = UserRedirectView.as_view()
 
 firebase = pyrebase.initialize_app(config)
 auth = firebase.auth()
+
+def login(request):
+    return render(request, "login.html")
