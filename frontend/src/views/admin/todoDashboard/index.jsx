@@ -17,6 +17,7 @@ import MiniCalendar from "components/calendar/MiniCalendar";
 import MiniStatistics from "components/card/MiniStatistics";
 import TodoCard from "components/card/TodoCard";
 import IconBox from "components/icons/IconBox";
+import FixedPlugin from "components/fixedPlugin/FixedPlugin";
 import React from "react";
 import {
     MdAdd,
@@ -63,7 +64,7 @@ export default function UserReports() {
                               padding='0px 11px 0px 11px'
                               borderRadius='50px'
                               boxShadow='0px 4px 4px rgba(0, 0, 0, 0.25)'
-                              color={textColor}>5</Text>
+                              color='navy.700'>5</Text>
 
                         <Text fontSize='2xl' fontWeight='bold' ml='10px'
                               color={textColor}>Todo</Text>
@@ -84,7 +85,7 @@ export default function UserReports() {
                               padding='0px 11px 0px 11px'
                               borderRadius='50px'
                               boxShadow='0px 4px 4px rgba(0, 0, 0, 0.25)'
-                              color={textColor}>6</Text>
+                              color='navy.700'>6</Text>
 
                         <Text fontSize='2xl' fontWeight='bold' ml='10px'
                               color={textColor}>In progress</Text>
@@ -105,7 +106,7 @@ export default function UserReports() {
                               padding='0px 11px 0px 11px'
                               borderRadius='50px'
                               boxShadow='0px 4px 4px rgba(0, 0, 0, 0.25)'
-                              color={textColor}>7</Text>
+                              color='navy.700'>7</Text>
 
                         <Text fontSize='2xl' fontWeight='bold' ml='10px'
                               color={textColor}>Complete</Text>
@@ -187,6 +188,7 @@ export default function UserReports() {
             {/*        <MiniCalendar h='100%' minW='100%' selectRange={false}/>*/}
             {/*    </SimpleGrid>*/}
             {/*</SimpleGrid>*/}
+            <FixedPlugin/>
         </Box>
     );
 }

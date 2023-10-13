@@ -73,9 +73,10 @@ export default function Default(props) {
                         w="100%"
                         minH="100px"
                         mb="10px"
-
                     >
-                        <Text>This is a small card</Text>
+                        <Text
+                            color='secondaryGray.900'
+                        >This is a small card</Text>
                     </Box>
                     <Box
                         bg="white"
@@ -86,7 +87,9 @@ export default function Default(props) {
                         minH="100px"
                         mb="10px"
                     >
-                        <Text>This is a small card</Text>
+                        <Text
+                            color='secondaryGray.900'
+                        >This is a small card</Text>
                     </Box>
                     <Box
                         bg="white"
@@ -97,7 +100,9 @@ export default function Default(props) {
                         minH="100px"
                         mb="10px"
                     >
-                        <Text>This is a small card</Text>
+                        <Text
+                            color='secondaryGray.900'
+                        >This is a small card</Text>
                     </Box>
                     <Box
                         bg="white"
@@ -108,7 +113,9 @@ export default function Default(props) {
                         minH="100px"
                         mb="10px"
                     >
-                        <Text>This is a small card</Text>
+                        <Text
+                            color='secondaryGray.900'
+                        >This is a small card</Text>
                     </Box>
                     <Box
                         bg="white"
@@ -119,7 +126,9 @@ export default function Default(props) {
                         minH="100px"
                         mb="10px"
                     >
-                        <Text>This is a small card</Text>
+                        <Text
+                            color='secondaryGray.900'
+                        >This is a small card</Text>
                     </Box>
                 </div>
                 {/*</Stat>*/}
