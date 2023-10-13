@@ -7,11 +7,10 @@ Get Started
 Documentation can be written as rst files in `planme/docs`.
 
 
-To build and serve docs, use the command::
+To build and serve docs, use the commands::
 
-    make livehtml
+    docker compose -f local.yml up docs
 
-from inside the `planme/docs` directory.
 
 
 Changes to files in `docs/_source` will be picked up and reloaded automatically.
@@ -32,3 +31,8 @@ To compile all docstrings automatically into documentation source files, use the
 
         make apidocs
 
+
+This can be done in the docker container:
+    ::
+
+        docker run --rm docs make apidocs
