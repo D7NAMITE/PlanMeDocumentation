@@ -1,4 +1,3 @@
-import firebase_admin
 from firebase_admin import credentials
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
