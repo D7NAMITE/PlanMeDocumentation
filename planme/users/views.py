@@ -1,5 +1,9 @@
 import firebase_admin
 from firebase_admin import credentials
+from django.http import JsonResponse
+from django.views.decorators.csrf import csrf_exempt
+import firebase_admin
+from firebase_admin import auth
 from django.contrib.auth import get_user_model
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.messages.views import SuccessMessageMixin
@@ -10,6 +14,20 @@ from django.views.generic import DetailView, RedirectView, UpdateView
 
 cred = credentials.Certificate('path_to_your_serviceAccountKey.json')
 firebase_admin.initialize_app(cred)
+
+@csrf_exempt 
+def verify_token(request):
+    token = request.POST.get('token')
+
+    try:
+        # Verify the token against Firebase Admin SDK
+        decoded_token = auth.verify_id_token(token)
+        uid = decoded_token['uid']
+        return JsonResponse({"status": "success", "uid": uid})
+
+    except ValueError:
+        # Token is invalid
+        return JsonResponse({"status": "error", "message": "Invalid token"})
 
 
 User = get_user_model()
