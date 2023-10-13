@@ -12,10 +12,10 @@ from django.utils.translation import gettext_lazy as _
 from django.views.generic import DetailView, RedirectView, UpdateView
 
 
-cred = credentials.Certificate('path_to_your_serviceAccountKey.json')
+cred = credentials.Certificate('/planme/planme/users/planme-6007f-firebase-adminsdk-vcf83-4089971acc.json')
 firebase_admin.initialize_app(cred)
 
-@csrf_exempt 
+@csrf_exempt
 def verify_token(request):
     token = request.POST.get('token')
 
