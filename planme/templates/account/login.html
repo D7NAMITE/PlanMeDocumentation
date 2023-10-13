@@ -23,6 +23,11 @@
     <div class="socialaccount_ballot">
       <ul class="socialaccount_providers">
         {% include "socialaccount/snippets/provider_list.html" with process="login" %}
+        <li>
+          <a href="#" id="firebase-google-login" class="btn btn-secondary">
+            Login with Google (Firebase)
+          </a>
+        </li>
       </ul>
       <div class="login-or">{% translate "or" %}</div>
     </div>
