@@ -1,6 +1,7 @@
 import { initializeApp } from "firebase/app";
 import { getAuth, GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
 
+
 const firebaseConfig = {
   apiKey: "AIzaSyDRLf6GEoHKnQcHzf8Nh4bhO8e13r0iiVI",
   authDomain: "planme-6007f.firebaseapp.com",
@@ -25,4 +26,3 @@ export const handleGoogleSignIn = async () => {
       console.error('Error signing in with Google:', error);
     }
   };
-
