@@ -41,3 +41,7 @@ class SubTask(models.Model):
     status = models.CharField(max_length=255)
     task = models.ForeignKey(Task, on_delete=models.CASCADE, related_name='subtasks')
     user = models.ForeignKey(User, on_delete=models.CASCADE)
+
+class Dashboard(models.Model):
+    dashboard_id = models.AutoField(primary_key=True)
+    user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='dashboard')
