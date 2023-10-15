@@ -45,3 +45,8 @@ class SubTask(models.Model):
 class Dashboard(models.Model):
     dashboard_id = models.AutoField(primary_key=True)
     user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='dashboard')
+
+class DataVisualization(models.Model):
+    visualization_id = models.AutoField(primary_key=True)
+    user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='data_visualization')
+    type = models.CharField(max_length=255)
