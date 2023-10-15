@@ -1,5 +1,5 @@
 from django.contrib.auth.models import AbstractUser
-from django.db import models
+from django.db.models import CharField
 from django.urls import reverse
 from django.utils.translation import gettext_lazy as _
 
@@ -11,8 +11,10 @@ class User(AbstractUser):
     check forms.SignupForm and forms.SocialSignupForms accordingly.
     """
 
-    # Add your custom fields here
-    token = models.CharField(max_length=255)
+    # First and last name do not cover name patterns around the globe
+    name = CharField(_("Name of User"), blank=True, max_length=255)
+    first_name = None  # type: ignore
+    last_name = None  # type: ignore
 
     def get_absolute_url(self) -> str:
         """Get URL for user's detail view.
@@ -22,31 +24,3 @@ class User(AbstractUser):
 
         """
         return reverse("users:detail", kwargs={"username": self.username})
-
-class Task(models.Model):
-    task_id = models.AutoField(primary_key=True)
-    title = models.CharField(max_length=255)
-    description = models.TextField()
-    due_date = models.DateField()
-    status = models.CharField(max_length=255)
-    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='tasks')
-
-class SubTask(models.Model):
-    subtask_id = models.AutoField(primary_key=True)
-    title = models.CharField(max_length=255)
-    description = models.TextField()
-    summarized_text = models.TextField()
-    bullet_text = models.TextField()
-    due_date = models.DateField()
-    status = models.CharField(max_length=255)
-    task = models.ForeignKey(Task, on_delete=models.CASCADE, related_name='subtasks')
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
-
-class Dashboard(models.Model):
-    dashboard_id = models.AutoField(primary_key=True)
-    user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='dashboard')
-
-class DataVisualization(models.Model):
-    visualization_id = models.AutoField(primary_key=True)
-    user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='data_visualization')
-    type = models.CharField(max_length=255)
