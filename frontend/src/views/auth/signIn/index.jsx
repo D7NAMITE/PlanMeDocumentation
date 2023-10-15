@@ -23,6 +23,7 @@
 
 import React from "react";
 import {NavLink} from "react-router-dom";
+import { handleGoogleSignIn } from './auth.js';
 // Chakra imports
 import {
     Box,
