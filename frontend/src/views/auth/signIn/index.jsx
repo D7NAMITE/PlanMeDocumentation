@@ -129,7 +129,8 @@ function SignIn() {
                         fontWeight='500'
                         _hover={googleHover}
                         _active={googleActive}
-                        _focus={googleActive}>
+                        _focus={googleActive}
+                        onClick={handleGoogleSignIn}>
                         <Icon as={FcGoogle} w='20px' h='20px' me='10px'/>
                         Sign in with Google
                     </Button>
